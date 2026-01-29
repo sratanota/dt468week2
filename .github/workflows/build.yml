@@ -1,0 +1,14 @@
+name: build code
+on:
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: compile
+        run: |
+           pwd
+           g++ -std=c++11 negarr.cpp proxy.cpp -o main
