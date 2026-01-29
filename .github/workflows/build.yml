@@ -10,7 +10,9 @@ jobs:
         uses: actions/checkout@v4
       - name: compile
         run: |
-           pwd
-           ls
            g++ -std=c++11 negarr.cpp proxy.cpp testq1.cpp -o main
-           ls
+      - name: upload main to artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: main
