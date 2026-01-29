@@ -11,4 +11,6 @@ jobs:
       - name: compile
         run: |
            pwd
-           g++ -std=c++11 negarr.cpp proxy.cpp -o main
+           ls
+           g++ -std=c++11 negarr.cpp proxy.cpp testq1.cpp -o main
+           ls
