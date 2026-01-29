@@ -1,0 +1,20 @@
+name: Hello World
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: 
+jobs:
+  hello1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say hello
+        run: echo "hello"
+      - name: say name
+        run: echo "sukanya"
+  bye:
+    needs: hello1
+    runs-on: ubuntu-latest
+    steps:
+      - name: say bye
+        run: echo "bye"
+    
