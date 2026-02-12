@@ -1,0 +1,27 @@
+name: C++ Linting with Super-Linter
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write   
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Super-Linter (C++)
+        uses: github/super-linter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # ---- Super-Linter configuration ----
+          VALIDATE_CPP: true          # enable C++ linting
+          VALIDATE_CLANG_FORMAT: true # check code formatting
+          DEFAULT_BRANCH: main
+          FILTER_REGEX_INCLUDE: .*\.cpp|.*\.h|.*\.hpp
